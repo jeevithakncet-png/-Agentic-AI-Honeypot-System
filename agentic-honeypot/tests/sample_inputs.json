@@ -1,0 +1,187 @@
+[
+  {
+    "name": "Banking Fraud - Urgency Tactic",
+    "sessionId": "session-001",
+    "firstMessage": {
+      "message": {
+        "sender": "scammer",
+        "text": "Your bank account has unusual activity. Click this link to verify immediately: http://secure-bank-verify.com/verify?token=xyz",
+        "timestamp": 1707110400000
+      },
+      "conversationHistory": [],
+      "metadata": {
+        "channel": "SMS",
+        "language": "English",
+        "locale": "IN"
+      }
+    },
+    "expectedScamDetected": true,
+    "expectedIntelligence": ["phishing link", "urgency"]
+  },
+  {
+    "name": "UPI Fraud - Payment Redirection",
+    "sessionId": "session-002",
+    "firstMessage": {
+      "message": {
+        "sender": "scammer",
+        "text": "Congratulations! You won ₹50,000! Send your UPI ID (name@upi) to claim the prize now!",
+        "timestamp": 1707110400000
+      },
+      "conversationHistory": [],
+      "metadata": {
+        "channel": "WhatsApp",
+        "language": "English",
+        "locale": "IN"
+      }
+    },
+    "expectedScamDetected": true,
+    "expectedIntelligence": ["UPI request", "false prize"]
+  },
+  {
+    "name": "OTP Phishing Attack",
+    "sessionId": "session-003",
+    "firstMessage": {
+      "message": {
+        "sender": "scammer",
+        "text": "Your account is LOCKED for security. Share your 6-digit OTP to unlock: [URGENT]",
+        "timestamp": 1707110400000
+      },
+      "conversationHistory": [],
+      "metadata": {
+        "channel": "SMS",
+        "language": "English",
+        "locale": "IN"
+      }
+    },
+    "expectedScamDetected": true,
+    "expectedIntelligence": ["OTP request", "threat", "urgency"]
+  },
+  {
+    "name": "Multi-turn Conversation - Account Verification",
+    "sessionId": "session-004",
+    "messages": [
+      {
+        "message": {
+          "sender": "scammer",
+          "text": "Hello! This is ICICI Bank. Your account will be suspended in 24 hours due to security concerns.",
+          "timestamp": 1707110400000
+        },
+        "conversationHistory": [],
+        "metadata": {"channel": "SMS", "language": "English", "locale": "IN"}
+      },
+      {
+        "message": {
+          "sender": "scammer",
+          "text": "To prevent suspension, please provide your 16-digit card number and CVV immediately.",
+          "timestamp": 1707110460000
+        },
+        "conversationHistory": [
+          {
+            "sender": "scammer",
+            "text": "Hello! This is ICICI Bank. Your account will be suspended in 24 hours due to security concerns.",
+            "timestamp": 1707110400000
+          },
+          {
+            "sender": "user",
+            "text": "Why is my account suspended? This doesn't seem right.",
+            "timestamp": 1707110430000
+          }
+        ],
+        "metadata": {"channel": "SMS", "language": "English", "locale": "IN"}
+      }
+    ],
+    "expectedScamDetected": true,
+    "expectedIntelligence": ["account suspension threat", "CVV request", "card details"],
+    "scamType": "credential phishing"
+  },
+  {
+    "name": "Malware Distribution - App Download",
+    "sessionId": "session-005",
+    "firstMessage": {
+      "message": {
+        "sender": "scammer",
+        "text": "Update your bank app immediately from: http://malicious-bank-app.download/secure - Your account is at risk!",
+        "timestamp": 1707110400000
+      },
+      "conversationHistory": [],
+      "metadata": {"channel": "WhatsApp", "language": "English", "locale": "IN"}
+    },
+    "expectedScamDetected": true,
+    "expectedIntelligence": ["malware link", "threat", "urgent action request"]
+  },
+  {
+    "name": "Cryptocurrency Scam",
+    "sessionId": "session-006",
+    "firstMessage": {
+      "message": {
+        "sender": "scammer",
+        "text": "Send Bitcoin to 1A1z7agoat91gujJBLcM00CPJNCoUNEjXF and get 3X returns guaranteed! Limited offer today.",
+        "timestamp": 1707110400000
+      },
+      "conversationHistory": [],
+      "metadata": {"channel": "Telegram", "language": "English", "locale": "IN"}
+    },
+    "expectedScamDetected": true,
+    "expectedIntelligence": ["bitcoin address", "investment fraud"]
+  },
+  {
+    "name": "Legitimate Message - No Scam",
+    "sessionId": "session-007",
+    "firstMessage": {
+      "message": {
+        "sender": "scammer",
+        "text": "Hi, can you help me with directions to the nearest bus station?",
+        "timestamp": 1707110400000
+      },
+      "conversationHistory": [],
+      "metadata": {"channel": "Chat", "language": "English", "locale": "IN"}
+    },
+    "expectedScamDetected": false,
+    "expectedIntelligence": []
+  },
+  {
+    "name": "Job Scam - Payment Upfront",
+    "sessionId": "session-008",
+    "firstMessage": {
+      "message": {
+        "sender": "scammer",
+        "text": "Congrats! You're selected for a Work-From-Home job. Send ₹5000 registration fee to account 9876543210123456 ASAP!",
+        "timestamp": 1707110400000
+      },
+      "conversationHistory": [],
+      "metadata": {"channel": "Email", "language": "English", "locale": "IN"}
+    },
+    "expectedScamDetected": true,
+    "expectedIntelligence": ["bank account number", "upfront payment request", "urgency"]
+  },
+  {
+    "name": "Loan Scam - Fake Offer",
+    "sessionId": "session-009",
+    "firstMessage": {
+      "message": {
+        "sender": "scammer",
+        "text": "Get instant loan approval! Just click here http://instant-loan-approve.site/apply and share your PAN, Aadhaar, and phone number.",
+        "timestamp": 1707110400000
+      },
+      "conversationHistory": [],
+      "metadata": {"channel": "SMS", "language": "English", "locale": "IN"}
+    },
+    "expectedScamDetected": true,
+    "expectedIntelligence": ["phishing link", "personal information request"]
+  },
+  {
+    "name": "Prize/Gift Scam with Contact",
+    "sessionId": "session-010",
+    "firstMessage": {
+      "message": {
+        "sender": "scammer",
+        "text": "You've won a FREE iPhone! Contact +919876543210 to claim. Valid for 1 hour only!",
+        "timestamp": 1707110400000
+      },
+      "conversationHistory": [],
+      "metadata": {"channel": "WhatsApp", "language": "English", "locale": "IN"}
+    },
+    "expectedScamDetected": true,
+    "expectedIntelligence": ["phone number", "false prize", "urgency"]
+  }
+]
