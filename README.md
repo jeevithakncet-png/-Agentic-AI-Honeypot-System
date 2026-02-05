@@ -1,2 +1,0 @@
-# -Agentic-AI-Honeypot-System
-The Agentic AI Honeypot System is a smart security solution that detects online scams in real time. Instead of blocking suspicious messages, it hands the conversation to an AI agent that behaves like a real user, keeps scammers engaged, and helps uncover scam patterns and valuable threat intelligence.
